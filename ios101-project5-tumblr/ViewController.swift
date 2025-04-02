@@ -6,17 +6,42 @@
 import UIKit
 import Nuke
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource {
 
-
+    private var posts: [Post] = []
+    @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+        tableView.dataSource = self
         fetchPosts()
     }
 
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return posts.count
+    }
+    
 
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "PostCell", for: indexPath) as! PostCell
+        let post = posts[indexPath.row]
+        
+        if let photo = post.photos.first {
+               let imageUrl = photo.originalSize.url
+            Nuke.loadImage(with:imageUrl, into: cell.photoImageView)
+                 }
+        
+
+        cell.summaryLabel.text = post.summary
+        
+        
+        return cell
+    }
+    
+    
+    
 
     func fetchPosts() {
         let url = URL(string: "https://api.tumblr.com/v2/blog/humansofnewyork/posts/photo?api_key=1zT8CiXGXFcQDyMFG7RtcfGLwTdDjFUJnZzKJaWTmgyK4lKGYk")!
@@ -39,15 +64,14 @@ class ViewController: UIViewController {
             do {
                 let blog = try JSONDecoder().decode(Blog.self, from: data)
 
-                DispatchQueue.main.async { [weak self] in
+                DispatchQueue.main.async { [weak self] in self?.posts = blog.response.posts
+                    
+                    self?.tableView.reloadData()
 
-                    let posts = blog.response.posts
-
-
-                    print("✅ We got \(posts.count) posts!")
-                    for post in posts {
-                        print("🍏 Summary: \(post.summary)")
-                    }
+//                    print("✅ We got \(posts.count) posts!")
+//                    for post in posts {
+//                        print("🍏 Summary: \(post.summary)")
+//                    }
                 }
 
             } catch {
