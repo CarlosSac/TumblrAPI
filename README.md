@@ -1,17 +1,17 @@
-# Project 5 - *Tumblr API*
+# Project 5 - *Tumblr Blogs*
 
 Submitted by: **Carlos Sac**
 
-**Tumblr API** is an app that ... [TODO] 
+**Tumblr Blogs** is an app that shows a list of cool Tumblr blogs 
 
-Time spent: **X** hours spent in total
+Time spent: **3** hours spent in total
 
 ## Required Features
 
 The following **required** functionality is completed:
 
-- [ ] App has a configured table view and table view call
-- [ ] App populates the table view with data fetched from an API
+- [x] App has a configured table view and table view call
+- [x] App populates the table view with data fetched from an API
 
 
 The following **optional** features are implemented:
@@ -25,9 +25,7 @@ The following **additional** features are implemented:
 
 ## Video Walkthrough
 
-Here is a reminder on how to embed Loom videos on GitHub. Feel free to remove this reminder once you upload your README. 
-
-[Guide](https://www.youtube.com/watch?v=GA92eKlYio4) .
+<img src='demo.gif' title='Video Walkthrough' alt='Video Walkthrough' />
 
 ## Notes
 

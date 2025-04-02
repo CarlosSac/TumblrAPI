@@ -33,7 +33,6 @@ class ViewController: UIViewController, UITableViewDataSource {
             Nuke.loadImage(with:imageUrl, into: cell.photoImageView)
                  }
         
-
         cell.summaryLabel.text = post.summary
         
         
