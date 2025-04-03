@@ -4,7 +4,7 @@ Submitted by: **Carlos Sac**
 
 **Tumblr Blogs** is an app that shows a list of cool Tumblr blogs 
 
-Time spent: **3** hours spent in total
+Time spent: **4** hours spent in total
 
 ## Required Features
 
